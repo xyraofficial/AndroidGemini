@@ -1,0 +1,8 @@
+{
+  "name": "Termux Java Dev Hub",
+  "description": "A comprehensive toolset for setting up Java and Gradle development environments on Termux, featuring automated GitHub Actions generators, package source managers, and AI-powered troubleshooting.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
