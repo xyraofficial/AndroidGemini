@@ -1,9 +1,10 @@
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "web", "java-graalvm22.3"]
 [agent]
 expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["gradle"]
 
 [workflows]
 runButton = "Project"
@@ -15,19 +16,18 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "frontend"
+args = "build-apk"
 
 [[workflows.workflow]]
-name = "frontend"
+name = "build-apk"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
+args = "cd /home/runner/workspace && gradle assembleRelease -x bundleRelease"
 
 [workflows.workflow.metadata]
-outputType = "webview"
+outputType = "console"
 
 [[ports]]
 localPort = 5000
